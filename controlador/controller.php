@@ -4,6 +4,16 @@ require_once("./modelo/index.php");
 
 class modeloController{
     private $model;
+    
+    public function __construct(){
+    $this->model = new Modelo();
 
-    function __
+    }
+
+    // Mostrar 
+    static function pruebas(){
+        $producto = new Modelo();
+        $dato     = $producto->mostrar('tb_escalaciones_registro', 'estado = 1');
+        require_once("./vista/index.php");
+    }
 }
