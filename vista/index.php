@@ -4,6 +4,7 @@
 ?>
 
     <a href="index.php?op=nuevo" class="btn">nuevo</a>
+    
     <table>
       <tr>
         <th>ID Registro</th>

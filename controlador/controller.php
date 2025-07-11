@@ -16,4 +16,11 @@ class modeloController{
         $dato     = $producto->mostrar('tb_escalaciones_registro', 'estado = 1');
         require_once("./vista/index.php");
     }
+
+    // NUEVO OP  
+    static function nuevo(){
+        require_once("./vista/nuevo.php");
+    }
+
+
 }
