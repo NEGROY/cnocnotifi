@@ -183,3 +183,42 @@ footer {
     button:hover {
       background-color: #0056b3;
     }
+
+    /*para mostrar mensjes 2.0*/
+
+      .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .form-container, .mensajes-container {
+      flex: 1;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .mensajes-container {
+      background-color: #f9f9f9;
+    }
+
+    .mensaje {
+      border: 1px solid #ddd;
+      border-left: 5px solid #4CAF50;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+
+    textarea, input, button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      cursor: pointer;
+    }
