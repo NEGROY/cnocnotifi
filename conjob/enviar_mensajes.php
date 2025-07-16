@@ -5,7 +5,7 @@ date_default_timezone_set('America/Guatemala');
 $pdo = new PDO("mysql:host=$host;port=$port;dbname=$database;charset=utf8", $user, $password);
 
 // Obtener mensajes que deben ser enviados y aún no se han enviado
-$stmt = $pdo->prepare("SELECT * FROM mensajes WHERE nombre = 0 AND fecha_envio <= NOW()");
+$stmt = $pdo->prepare("SELECT * FROM mensajes WHERE nombre = 0 AND fecha_envio <= NOW() LIMIT 1");
 $stmt->execute();
 $mensajes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
