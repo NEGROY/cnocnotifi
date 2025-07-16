@@ -44,5 +44,13 @@ class Modelo{
             return $this->datos;
     }
 
+    // tarer los mensajes 
+    public function obtenerMensajes() {
+    $sql = "SELECT * FROM mensajes ORDER BY fecha_envio DESC";
+    $stmt = $this->db->query($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 }

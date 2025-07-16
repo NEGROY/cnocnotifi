@@ -11,7 +11,7 @@
     <!-- Lado izquierdo: Formulario -->
     <div class="form-container">
       <h2>Enviar Mensaje</h2>
-      <form action=" " method="POST">
+      <form action="?op=guardar" method="POST">
         <label for="fechaHora">Fecha y hora:</label>
         <input type="datetime-local" id="fechaHora" name="fecha_hora" value="<?=$fecha_actual?>" required>
 
@@ -28,20 +28,21 @@
 
     <!-- Lado derecho: Mensajes desde la BD -->
     <div class="mensajes-container">
-      <h2>Mensajes</h2>
-
-      <!-- Estructura ejemplo de mensaje -->
-      <div class="mensaje">
-        <strong>Fecha:</strong> 2025-07-12 18:30<br>
-        <strong>Número:</strong> 50255512345<br>
-        <strong>Mensaje:</strong> Hola, este es un mensaje de prueba.
-      </div>
-
-      <!-- Puedes repetir este bloque por cada mensaje en PHP con un foreach -->
+      <?php if (!empty($dato[0])): ?>
+        <?php foreach ($dato[0] as $fila):?>
+          <div class="mensaje">
+            <strong>Fecha:</strong> <?= htmlspecialchars($fila['fecha_envio']) ?><br>
+            <strong>Número:</strong> <?= htmlspecialchars($fila['telefono']) ?><br>
+            <strong>Mensaje:</strong> <?= nl2br(htmlspecialchars($fila['mensaje'])) ?>
+          </div>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <p>No hay mensajes aún.</p>
+      <?php endif; ?>
     </div>
 
   </div>
 
 
 <?php
-require_once("layout/footer.php");
+//require_once("layout/footer.php");

@@ -4,10 +4,12 @@ require_once("./controlador/controller.php");
 
 if(isset($_GET['op'])):
     if(method_exists("modeloController",$_GET['op'])):
+        //echo "<h3>Función guardar() ejecutada correctamente</h3>".$_GET['op'];
         modeloController::{$_GET['op']}();
     endif;
 else:
-    modeloController::pruebas(); 
+    //echo $_GET['op'];
+    modeloController::nuevo(); 
 endif;
 
 

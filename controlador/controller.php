@@ -19,6 +19,8 @@ class modeloController{
 
     // NUEVO OP  
     static function nuevo(){
+        $producto = new Modelo();
+        $dato     = $producto->mostrar('mensajes', 'nombre = 0');
         require_once("./vista/nuevo.php");
     }
 
@@ -61,5 +63,14 @@ class modeloController{
             echo "Error al guardar el mensaje.";
         }
     }
+
+    // carga los mensajes y la vista
+    public static function listar() {
+    $modelo = new Modelo();
+    $mensajes = $modelo->obtenerMensajes();
+
+    // Puedes pasar la variable $mensajes a la vista
+    include './vista/nuevo.php';
+}
 
 }
