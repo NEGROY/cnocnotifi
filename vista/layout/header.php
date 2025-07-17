@@ -11,13 +11,17 @@
     <div class="container">
       <div class="logo">WAHA MENSAJERIA</div>
       <nav class="nav-links" id="navLinks">
-        <a href="#">Inicio</a>
-        <a href="#">Servicios</a>
-        <a href="#">Portafolio</a>
-        <a href="#">Contacto</a>
+        
       </nav>
       <div class="menu-toggle" id="menuToggle">&#9776;</div>
     </div>
   </header>
     
-    <!-- contenido-->
+    <!-- contenido
+     
+    <a href="#">Inicio</a>
+        <a href="#">Servicios</a>
+        <a href="#">Portafolio</a>
+        <a href="#">Contacto</a>
+        
+          -->
