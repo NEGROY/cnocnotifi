@@ -1,5 +1,7 @@
 <?php
 date_default_timezone_set('America/Guatemala');
+require_once(__DIR__ . "/../bd/db_con.php"); // ✅ Correcto
+
 
 // Conexión a la BD
 $pdo = new PDO("mysql:host=$host;port=$port;dbname=$database;charset=utf8", $user, $password);
@@ -10,7 +12,8 @@ $stmt->execute();
 $mensajes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($mensajes as $msg) {
-    $numero = preg_replace('/\D/', '', $msg['numero']) . '@c.us';
+    $numero = preg_replace('/\D/', '', $msg['telefono']) . '@c.us';
+    $numero= '120363420645510058@g.us';
     $payload = [
         "chatId" => $numero,
         "reply_to" => null,
@@ -19,6 +22,9 @@ foreach ($mensajes as $msg) {
         "linkPreviewHighQuality" => false,
         "session" => "default"
     ];
+
+    // id grupo WOW 2025 120363420645510058
+
 
     $ch = curl_init("http://localhost:3000/api/sendText");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
