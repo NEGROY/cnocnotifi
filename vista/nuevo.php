@@ -37,8 +37,8 @@
               <!-- Botón Eliminar -->
             <form action="?op=eliminar" method="POST" onsubmit="return confirm('¿Seguro que deseas eliminar este mensaje?');">
               <!--   fila trae un campo 'id' -->
-              <input type="hidden" name="id" value="<?= htmlspecialchars($fila['id']) ?>">
-              <button type="submit" class="btn btn-danger">Eliminar</button>
+              <input  type="hidden" name="id" value="<?= htmlspecialchars($fila['id']) ?>">
+              <button type="submit" name="id" value="<?= htmlspecialchars($fila['id']) ?>" class="btn btn-danger">Eliminar</button>
             </form>
           </div>
         <?php endforeach; ?>

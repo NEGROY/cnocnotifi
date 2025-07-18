@@ -32,7 +32,7 @@ class Modelo{
         }
         return $stmt->execute();
     }
-    //public function eliminar(){}
+ 
 
     // FUNOION MOSTRAR IONFO 
     public function mostrar($tabla, $condicion){
@@ -61,13 +61,13 @@ class Modelo{
         try {
             // Preparar y ejecutar sentencia SQL segura
             //$sql = "DELETE FROM `$tabla` WHERE id = :id";
-             $sql = "UPDATE `$tabla` SET nombre = 1 WHERE id = :id";
+            $sql = "UPDATE $tabla SET nombre = 1 WHERE id = $id";
             $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            //$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
             return $stmt->execute();
         } catch (PDOException $e) {
-            // Opcional: puedes guardar el error en logs
+            // Opcional: puedes guar dar el error en logs
             return false;
         }
     }

@@ -74,7 +74,7 @@ class modeloController{
 
 
     // PARA ELIMINAR 
-     static function elimina_msj(){
+     static function eliminar(){
         $id = trim($_REQUEST['id'] ?? '');
         $tabla = "mensajes";
 

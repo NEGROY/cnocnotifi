@@ -1,5 +1,5 @@
 <?php
 
-define("urlsite", "http://localhost/MVC1/");
+define("urlsite", "http://localhost/cnocnotifi/");
 
 
