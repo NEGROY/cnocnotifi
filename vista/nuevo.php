@@ -34,6 +34,12 @@
             <strong>Fecha:</strong> <?= htmlspecialchars($fila['fecha_envio']) ?><br>
             <strong>Número:</strong> <?= htmlspecialchars($fila['telefono']) ?><br>
             <strong>Mensaje:</strong> <?= nl2br(htmlspecialchars($fila['mensaje'])) ?>
+              <!-- Botón Eliminar -->
+            <form action="?op=eliminar" method="POST" onsubmit="return confirm('¿Seguro que deseas eliminar este mensaje?');">
+              <!--   fila trae un campo 'id' -->
+              <input type="hidden" name="id" value="<?= htmlspecialchars($fila['id']) ?>">
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
           </div>
         <?php endforeach; ?>
       <?php else: ?>

@@ -29,7 +29,6 @@ class modeloController{
         $fecha_hora_raw = trim($_REQUEST['fecha_hora'] ?? '');
         $mensaje        = trim($_REQUEST['mensaje'] ?? '');
         $numero_raw     = preg_replace('/\s+/', '', $_REQUEST['numero'] ?? '');
-
         //return $numero_raw ;
 
         // Validar número
@@ -66,11 +65,31 @@ class modeloController{
 
     // carga los mensajes y la vista
     public static function listar() {
-    $modelo = new Modelo();
-    $mensajes = $modelo->obtenerMensajes();
+        $modelo = new Modelo();
+        $mensajes = $modelo->obtenerMensajes();
 
-    // Puedes pasar la variable $mensajes a la vista
-    include './vista/nuevo.php';
+        // Puedes pasar la variable $mensajes a la vista
+        include './vista/nuevo.php';
 }
+
+
+    // PARA ELIMINAR 
+     static function elimina_msj(){
+        $id = trim($_REQUEST['id'] ?? '');
+        $tabla = "mensajes";
+
+        $producto = new Modelo();
+        $resultado = $producto->eliminar("mensajes", $id );
+
+        if ($resultado) {
+            header('Location: ' . urlsite); // Redirige correctamente
+            exit();
+        } else {
+            echo "Error al guardar el mensaje.";
+        }
+
+    }   
+
+// PARA ELIMINAR MENSAJES
 
 }

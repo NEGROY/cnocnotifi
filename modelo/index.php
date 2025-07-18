@@ -46,11 +46,31 @@ class Modelo{
 
     // tarer los mensajes 
     public function obtenerMensajes() {
-    $sql = "SELECT * FROM mensajes ORDER BY fecha_envio DESC";
-    $stmt = $this->db->query($sql);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+        $sql = "SELECT * FROM mensajes ORDER BY fecha_envio DESC";
+        $stmt = $this->db->query($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // PARA ELIMINAR  LOS MENSAJES 
+    public function eliminar($tabla, $id) {
+        // Validar entrada
+        if (empty($tabla) || empty($id)) {
+            return false;
+        }
+        try {
+            // Preparar y ejecutar sentencia SQL segura
+            //$sql = "DELETE FROM `$tabla` WHERE id = :id";
+             $sql = "UPDATE `$tabla` SET nombre = 1 WHERE id = :id";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            // Opcional: puedes guardar el error en logs
+            return false;
+        }
+    }
 
 
 }

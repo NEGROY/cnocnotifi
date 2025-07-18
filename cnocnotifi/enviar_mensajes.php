@@ -11,6 +11,8 @@ $stmt = $pdo->prepare("SELECT * FROM mensajes WHERE nombre = 0 AND fecha_envio <
 $stmt->execute();
 $mensajes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+echo "<h1> HOLA ! ENVIANDO ... </h1>";
+
 foreach ($mensajes as $msg) {
     $numero = preg_replace('/\D/', '', $msg['telefono']) . '@c.us';
     $numero= '120363420645510058@g.us';
@@ -42,8 +44,10 @@ foreach ($mensajes as $msg) {
     if ($http_code === 200) {
         $update = $pdo->prepare("UPDATE mensajes SET nombre = 1 WHERE id = ?");
         $update->execute([$msg['id']]);
+        echo "<h1> mensaje enviado </h1>";
     } else {
         // Puedes guardar en un log de errores
         error_log("Error al enviar mensaje ID {$msg['id']}: $response");
+        echo "<h1> Error al enviar mensaje ID {$msg['id']}: $response </h1>";
     }
 }
